@@ -1,0 +1,7 @@
+{
+  "name": "debt-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
