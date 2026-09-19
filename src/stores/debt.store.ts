@@ -4,6 +4,7 @@ import { defineStore } from "pinia";
 import type { Debt, DebtPayment } from "@/models/debt";
 
 import { storageService } from "@/services/storage.service";
+import { generateId } from "@/utils/id";
 
 export const useDebtStore = defineStore("debt", () => {
   const debts = ref<Debt[]>([]);
@@ -85,7 +86,7 @@ export const useDebtStore = defineStore("debt", () => {
     const paymentAmount = Math.min(amount, debt.remainingAmount);
 
     const payment: DebtPayment = {
-      id: crypto.randomUUID(),
+      id: generateId(),
       amount: paymentAmount,
       paidAt: new Date().toISOString(),
       note,

@@ -321,6 +321,7 @@ import {
 
 import { useDebtStore } from "@/stores/debt.store";
 import type { DebtDirection, DebtType } from "@/models/debt";
+import { generateId } from "@/utils/id";
 
 defineProps<{
   isOpen: boolean;
@@ -372,7 +373,7 @@ async function handleSubmit(): Promise<void> {
 
   // ! Create debt.
   debtStore.addDebt({
-    id: crypto.randomUUID(),
+    id: generateId(),
     name: form.name.trim(),
     person: form.person.trim() || undefined,
     direction: form.direction,
