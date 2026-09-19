@@ -108,6 +108,85 @@ export const useDebtStore = defineStore("debt", () => {
     storageService.saveDebts(debts.value);
   }
 
+  // ! Delete a single payment from a debt.
+  function deletePayment(debtId: string, paymentId: string): void {
+    const debt = getDebtById(debtId);
+
+    // ? Stop if the debt does not exist.
+    if (!debt) {
+      return;
+    }
+
+    const payment = debt.payments?.find((item) => item.id === paymentId);
+
+    // ? Stop if the payment does not exist.
+    if (!payment) {
+      return;
+    }
+
+    // ! Remove the payment from payment history.
+    debt.payments = debt.payments.filter((item) => item.id !== paymentId);
+
+    // ! Restore the payment amount to the remaining debt balance.
+    debt.remainingAmount = Math.min(
+      debt.originalAmount,
+      debt.remainingAmount + payment.amount,
+    );
+
+    // ! A debt with a restored balance becomes active again.
+    if (debt.remainingAmount > 0) {
+      debt.status = "active";
+    }
+
+    debt.updatedAt = new Date().toISOString();
+
+    // ! Save the updated debt data.
+    storageService.saveDebts(debts.value);
+  }
+
+  // ! Delete multiple payments at once.
+  function deletePayments(
+    paymentsToDelete: Array<{
+      debtId: string;
+      paymentId: string;
+    }>,
+  ): void {
+    paymentsToDelete.forEach(({ debtId, paymentId }) => {
+      const debt = getDebtById(debtId);
+
+      // ? Skip if the debt does not exist.
+      if (!debt) {
+        return;
+      }
+
+      const payment = debt.payments?.find((item) => item.id === paymentId);
+
+      // ? Skip if the payment does not exist.
+      if (!payment) {
+        return;
+      }
+
+      // ! Remove the payment.
+      debt.payments = debt.payments.filter((item) => item.id !== paymentId);
+
+      // ! Restore the payment amount to the debt.
+      debt.remainingAmount = Math.min(
+        debt.originalAmount,
+        debt.remainingAmount + payment.amount,
+      );
+
+      // ! Reopen the debt if it now has a remaining balance.
+      if (debt.remainingAmount > 0) {
+        debt.status = "active";
+      }
+
+      debt.updatedAt = new Date().toISOString();
+    });
+
+    // ! Save once after all payments have been removed.
+    storageService.saveDebts(debts.value);
+  }
+
   // ! Get every payment from every debt.
   const paymentHistory = computed(() => {
     return debts.value
@@ -159,5 +238,7 @@ export const useDebtStore = defineStore("debt", () => {
     updateDebt,
     deleteDebt,
     recordPayment,
+    deletePayment,
+    deletePayments,
   };
 });

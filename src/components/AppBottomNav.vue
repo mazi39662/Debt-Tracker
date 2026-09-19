@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="home" href="/home">
       <ion-icon :icon="homeOutline" />
@@ -42,7 +42,7 @@ const emit = defineEmits<{
   add: [];
 }>();
 
-function handleAdd() {
+function handleAdd(): void {
   emit("add");
 }
 </script>
@@ -50,13 +50,29 @@ function handleAdd() {
 <style scoped>
 ion-tab-bar {
   height: 68px;
-  --background: #ffffff;
-  border-top: 1px solid #eeeeee;
+
+  /* ! Sage Finance theme */
+  --background: var(--app-surface);
+
+  border-top: 1px solid var(--app-border);
+
+  /* ! Floating rounded navigation characteristic */
+  border-radius: 24px 24px 0 0;
+  overflow: hidden;
+
+  /* ! Prevent content from appearing outside rounded corners */
+  overflow: hidden;
+
+  /* ! Separate the navigation from the page */
+  box-shadow: 0 -4px 18px rgba(31, 41, 55, 0.06);
 }
 
 ion-tab-button {
-  --color: #999;
-  --color-selected: #171717;
+  /* ! Default navigation state */
+  --color: var(--app-text-muted);
+
+  /* ! Active navigation state */
+  --color-selected: var(--app-text);
 }
 
 ion-icon {
@@ -64,22 +80,30 @@ ion-icon {
 }
 
 ion-label {
-  font-size: 11px;
   margin-top: 3px;
+
+  font-size: 11px;
+  font-weight: 600;
 }
 
+/* ! Center Add button */
 .add-button {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  background: #171717;
-  color: white;
+
+  border-radius: 16px;
+
+  background: var(--app-text);
+  color: #ffffff;
+
+  box-shadow: 0 4px 12px rgba(31, 41, 55, 0.18);
 }
 
 .add-button ion-icon {
   font-size: 23px;
 }
-</style>
+</style> -->

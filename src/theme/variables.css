@@ -1,2 +1,213 @@
-/* For information on how to create your own theme, please refer to:
-http://ionicframework.com/docs/theming/ */
+/* ! Ionic theme documentation */
+/* https://ionicframework.com/docs/theming/ */
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+/* ! ============================= */
+/* ! LIGHT THEME */
+/* ! ============================= */
+
+:root {
+  /* ! Main colors */
+  --ion-color-primary: #1f2937;
+  --ion-color-secondary: #4d7c0f;
+  --ion-color-success: #10b981;
+  --ion-color-warning: #f59e0b;
+  --ion-color-danger: #dc3545;
+  --ion-color-info: #2563eb;
+
+  /* ! App colors */
+  --app-background: #f7fee7;
+  --app-surface: #ffffff;
+  --app-surface-alt: #f7f7f7;
+  --app-surface-soft: #f3f3f3;
+
+  --app-text: #1f2937;
+  --app-text-muted: #737373;
+  --app-text-subtle: #666666;
+
+  --app-border: #e5e7eb;
+
+  /* ! Semantic soft colors */
+  --app-warning-soft: #fff3cd;
+  --app-warning-text: #856404;
+
+  --app-success-soft: #d1e7dd;
+  --app-success-text: #0f5132;
+
+  /* ! Sage */
+  --app-sage: #4d7c0f;
+  --app-sage-light: #ecfccb;
+  --app-sage-dark: #3f6212;
+
+  /* ! Ionic */
+  --ion-background-color: var(--app-background);
+  --ion-item-background: var(--app-surface);
+  --ion-text-color: var(--app-text);
+
+  /* ! Font */
+  --ion-font-family:
+    "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ! Ionic primary variants */
+:root {
+  --ion-color-primary-rgb: 31, 41, 55;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #1b242f;
+  --ion-color-primary-tint: #353e4a;
+
+  --ion-color-secondary-rgb: 77, 124, 15;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #436d0d;
+  --ion-color-secondary-tint: #5e8927;
+
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ea373;
+  --ion-color-success-tint: #28bf8f;
+}
+
+/* ! ============================= */
+/* ! DARK THEME */
+/* ! ============================= */
+
+html.dark {
+  /* ! App colors */
+  --app-background: #111510;
+  --app-surface: #1a2118;
+  --app-surface-alt: #202820;
+  --app-surface-soft: #252e24;
+
+  --app-text: #f3f7ee;
+  --app-text-muted: #a8b0a3;
+  --app-text-subtle: #8f9889;
+
+  --app-border: #30392d;
+
+  /* ! Semantic soft colors */
+  --app-warning-soft: #332b16;
+  --app-warning-text: #fcd34d;
+
+  --app-success-soft: #153c2e;
+  --app-success-text: #6ee7b7;
+
+  /* ! Sage */
+  --app-sage: #84cc16;
+  --app-sage-light: #29351f;
+  --app-sage-dark: #a3e635;
+
+  /* ! Ionic */
+  --ion-background-color: var(--app-background);
+  --ion-item-background: var(--app-surface-alt);
+  --ion-text-color: var(--app-text);
+
+  --ion-color-primary: #84cc16;
+  --ion-color-primary-rgb: 132, 204, 22;
+  --ion-color-primary-contrast: #111510;
+  --ion-color-primary-contrast-rgb: 17, 21, 16;
+  --ion-color-primary-shade: #74b513;
+  --ion-color-primary-tint: #90d12d;
+
+  --ion-color-secondary: #a3e635;
+  --ion-color-secondary-rgb: 163, 230, 53;
+  --ion-color-secondary-contrast: #111510;
+  --ion-color-secondary-contrast-rgb: 17, 21, 16;
+
+  --ion-color-success: #34d399;
+  --ion-color-success-rgb: 52, 211, 153;
+  --ion-color-success-contrast: #111510;
+
+  --ion-color-warning: #fbbf24;
+  --ion-color-warning-rgb: 251, 191, 36;
+  --ion-color-warning-contrast: #111510;
+
+  --ion-color-danger: #f87171;
+  --ion-color-danger-rgb: 248, 113, 113;
+  --ion-color-danger-contrast: #111510;
+
+  --ion-color-info: #60a5fa;
+  --ion-color-info-rgb: 96, 165, 250;
+  --ion-color-info-contrast: #111510;
+}
+
+/* ! Ionic components */
+html.dark ion-content {
+  --background: var(--app-background);
+  --color: var(--app-text);
+}
+
+html.dark ion-toolbar {
+  --background: var(--app-surface);
+  --color: var(--app-text);
+}
+
+html.dark ion-card {
+  --background: var(--app-surface);
+  --color: var(--app-text);
+}
+
+html.dark ion-item {
+  --background: var(--app-surface);
+  --color: var(--app-text);
+  --border-color: var(--app-border);
+}
+
+html.dark ion-list {
+  --ion-item-background: var(--app-surface);
+}
+
+html.dark ion-tab-bar {
+  --background: var(--app-surface);
+  --color: var(--app-text-muted);
+  --color-selected: var(--app-sage);
+}
+
+html.dark ion-tab-button {
+  --color: var(--app-text-muted);
+  --color-selected: var(--app-sage);
+}
+
+html.dark ion-modal {
+  --background: var(--app-surface-alt);
+}
+
+html.dark ion-alert {
+  --background: var(--app-surface);
+  --backdrop-opacity: 0.65;
+}
+
+html.dark ion-alert .alert-title,
+html.dark ion-alert .alert-message {
+  color: var(--app-text);
+}
+
+/* ! Inputs */
+html.dark ion-input,
+html.dark ion-textarea,
+html.dark ion-searchbar {
+  --background: var(--app-surface);
+  --color: var(--app-text);
+  --placeholder-color: var(--app-text-muted);
+}
+
+/* ! Toggle */
+html.dark ion-toggle {
+  --track-background: #3f463d;
+  --track-background-checked: var(--app-sage);
+  --handle-background: #ffffff;
+  --handle-background-checked: #ffffff;
+}
+
+/* ! Scrollbar */
+html.dark ::-webkit-scrollbar {
+  width: 5px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3f493a;
+  border-radius: 10px;
+}
