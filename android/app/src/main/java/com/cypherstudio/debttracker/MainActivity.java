@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.cypherstudio.debttracker;
 
 import com.getcapacitor.BridgeActivity;
 
